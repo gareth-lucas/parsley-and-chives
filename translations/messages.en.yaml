@@ -1,0 +1,124 @@
+general:
+  login: Log in
+  to-comment: to comment
+  comments-disabled: Commenting is currently disabled
+homepage:
+  featured-recipes: Featured Recipes
+  navigation:
+    labels:
+      site-name: Parsley & Chives
+      toggle-navigation: Toggle navigation
+      blog: Blog
+      admin: Admin
+      current: (current)
+      quick-links:
+        title: Quick Links
+        breakfast: Breakfast
+        brunch: Brunch
+        lunch: Lunch
+        dinner: Dinner
+        snack: Snack
+        starter: Starter
+        first-course: First Course
+        second-course: Second Course
+        dessert: Dessert
+        party-food: Party Food
+      language:
+        title: Select Language
+        english: English
+        italian: Italiano
+recipe:
+  preparation-time: Preparation Time
+  cooking-time: Cooking Time
+  printable-version: Get Printable Version
+  method: Method
+  ingredient-list:
+    title: Ingredients
+admin:
+  submit: Save
+  nav:
+    title: Admin Menu
+    explanation: From here you can create/edit everything to do with the site; Recipes, Ingredients, Preparation Methods, etc. etc.
+    link:
+      recipes: Recipes
+      preparations: Preparation Methods
+      units: Units
+      ingredients: Ingredients      
+      recipe_type: Recipe Type
+      blog: Manage Blog
+  title:
+    preparation: Manage Preparation Types
+    units: Manage Units
+    ingredients: Manage Ingredients
+  table:
+    actions: Actions
+    no-data: No data to display
+    uom:
+      name: Name
+      plural: Plural
+      abbreviation: Abbreviation
+      pluralAbbreviation: Plural Abbr.
+    recipe:
+      name: Name
+    preparation:
+      name: Preparation Method
+    ingredient:
+      name: Ingredient
+    recipetype:
+      name: Name
+  uom:
+    name: Name
+    plural: Plural
+    abbreviation: Abbreviation
+    plural_abbreviation: Plural Abbreviation
+  ingredient:
+    name: Name
+  recipe:
+    create: New Recipe
+    update: Edit Recipe
+    name: Name
+    description: Description
+    country: Country
+    is_vegetarian: Suitable for Vegetarians
+    is_vegan: Suitable for Vegans
+    prep_time: 
+      label: Preparation Time
+      hours: Hours
+      minutes: Minutes
+    prep_time_string: Preparation Time (Textual)
+    cook_time: 
+      label: Cooking Time
+      hours: Hours
+      minutes: Minutes
+    cook_time_string: Cooking Time (Textual)
+    recipe_ingredients: Recipe Ingredients
+    recipe_steps: Recipe Steps
+    recipe_images: Recipe Images
+  recipestep:
+    step:
+      1: 1
+      2: 2
+      3: 3
+      4: 4
+      5: 5
+      6: 6
+      7: 7
+      8: 8
+      9: 9
+      10: 10
+    position: Position
+    description: Description
+    image: Image
+  recipeingredient:
+    ingredient: Ingredient
+    unit: Unit
+    preparation: Preparation
+    quantity: Quantity
+    readableString: Readable Version
+  recipeimage:
+    label: Label
+    image: Image
+  recipetype:
+    name: Name
+login:
+  title: Login

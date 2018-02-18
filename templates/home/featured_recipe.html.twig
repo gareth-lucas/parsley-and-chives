@@ -1,0 +1,6 @@
+<div class="col-md-3">
+    <figure class="figure  text-center">        
+        {% if r.recipeImages %}<a href="{{ path("view_recipe", {"slug": r.slug}) }}"><img class="figure-image img-thumbnail img-responsive" src="{{ asset( r.recipeImages[0].imageName ) | imagine_filter('small_image') }}" alt="{{ r.name | trans }}" /></a>{% endif %}
+        <figcaption class="figure-caption"><a href="{{ path("view_recipe", {"slug": r.slug}) }}">{{ r.name }}</a></figcaption>
+    </figure>        
+</div>

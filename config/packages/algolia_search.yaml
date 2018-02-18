@@ -1,0 +1,15 @@
+# All available configuration can be found here:
+# https://www.algolia.com/doc/api-client/symfony/configuration/
+algolia_search:
+    prefix: '%env(APP_ENV)%_'
+    doctrineSubscribedEvents: ['postPersist','postUpdate','preRemove']
+    indices:
+      - name: recipes
+        class: App\Entity\Recipe
+        enable_serializer_groups: true
+      - name: ingredients
+        class: App\Entity\Ingredient
+        enable_serializer_groups: true
+      - name: recipe_steps
+        class: App\Entity\RecipeStep
+        enable_serializer_groups: true

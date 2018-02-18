@@ -1,0 +1,29 @@
+
+# app/config/routing.yml
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+    
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+    
+facebook_login:
+    path: /login/check-facebook
+    
+
+fos_user_security_login:
+    path: /{_locale}/login
+    controller: fos_user.security.controller:loginAction    
+    
+fos_user_security_check:
+    path: /login_check
+    controller: fos_user.security.controller:checkAction
+    
+fos_user_security_logout:
+    path: /{_locale}/logout
+    controller: fos_user.security.controller:logoutAction            

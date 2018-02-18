@@ -1,0 +1,46 @@
+security:
+    # https://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                login_path: /login
+                check_path: /login_check
+                use_forward: false
+                failure_path: /login
+                oauth_user_provider:
+                  service: my.custom.user_provider                 
+            logout: true
+            anonymous: true
+        admin:
+            pattern: ^/admin/
+            form_login:
+                check_path: /admin/login_check
+                login_path: /admin/login
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager               
+            logout:
+                path: /admin/logout
+            anonymous: false
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
+        - { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+    role_hierarchy:
+        ROLE_USER: ROLE_COMMENTER
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+    

@@ -1,0 +1,30 @@
+span.ais-search-box--magnifier-wrapper {
+	
+	
+}
+
+div.ais-search-box--magnifier {
+	top: 10px;
+}
+
+button.ais-search-box--reset {
+	top: 10px;
+}
+
+div.caption {
+	position: absolute;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.5);
+}
+
+div.caption-bottom {
+	bottom: 0;
+}
+
+div.caption-right {
+	right: 0;
+	margin-right: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+	background: linear-gradient(to left, rgba(0,0,0,0.8), rgba(0,0,0,0));
+}

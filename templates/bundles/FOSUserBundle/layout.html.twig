@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>{{ "login.title" | trans }}</h1>
+    
+    <div class="col-md-4 col-md-offset-4" style="min-height: 500px;">
+    {% block fos_user_content %}{% endblock %}
+    </div>
+{% endblock %}

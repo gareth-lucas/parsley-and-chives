@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<h1>Recipe List -> {{ rtype.name }}</h1>
+
+<div class="col-md-8">
+<div class="panel panel-default">
+    <ul class="list-group">
+{% for r in recipeList %}
+        <li class="list-group-item" style="min-height: 120px;">
+            <div style="float: left; width: 150px;">
+                <img src="{{ asset(r.recipeImages[0].imageName) | imagine_filter("tiny_image") }}" alt="{{ r.name }}" />
+            </div>
+            <div style="margin-left: 150px;">
+                <h4 class="list-group-item-heading"><a href="/recipe/{{ r.slug }}">{{ r.name }}</a></h4>
+                <p>{{ r.description | raw }}</p>
+            </div>
+        </li>
+{% endfor %}
+    </ul>
+</div>
+</div>
+<div class="col-md-4">
+&nbsp;
+</div>
+{% endblock body %}

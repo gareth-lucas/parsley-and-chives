@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{ "admin.nav.title" | trans }}</div>
+                <div class="panel-body">{{ "admin.nav.explanation" | trans }}</div>
+                <div class="list-group">
+                    <a class="list-group-item" href="{{ path("admin_object", {"object": "recipe"}) }}">{{ "admin.nav.link.recipes" | trans}}</a>
+                    <a class="list-group-item" href="{{ path("admin_object", {"object": "ingredient"}) }}">{{ "admin.nav.link.ingredients" | trans}}</a>
+                    <a class="list-group-item" href="{{ path("admin_object", {"object": "uom"}) }}">{{ "admin.nav.link.units" | trans}}</a>
+                    <a class="list-group-item" href="{{ path("admin_object", {"object": "preparation"}) }}">{{ "admin.nav.link.preparations" | trans}}</a>
+                    <a class="list-group-item" href="{{ path("admin_object", {"object": "recipetype"}) }}">{{ "admin.nav.link.recipe_type" | trans}}</a>
+                    <a class="list-group-item" href="{{ path("admin_blog") }}">{{ "admin.nav.link.blog" | trans }}</a>
+                    <a class="list-group-item" href="images">Images</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+        {% block admin_body %}{% endblock admin_body %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

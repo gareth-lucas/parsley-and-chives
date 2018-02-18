@@ -1,0 +1,11 @@
+{% extends "/admin/index.html.twig" %}
+
+{% block admin_body %}
+<h2>{{ "admin.title.preparation" | trans }}</h2>
+{{ table|raw }}
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+{% endblock admin_body %}

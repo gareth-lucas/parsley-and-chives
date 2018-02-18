@@ -1,0 +1,28 @@
+<div class="well" style="height: 400px; overflow-y: auto">
+    <table class="table">
+        <thead>
+        <tr>
+        {% for f in fields %}
+            <th>{{ ("admin.table." ~ object ~ "." ~ f) | trans }}</th>
+        {% endfor %}
+            <th>{{ "admin.table.actions" | trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for o in object_list %}
+            <tr>    
+        {% for f in fields %}
+                <td>{{ attribute(o, f) }}</td>
+        {% endfor %}
+                <td>
+                    <a href="{{ path("admin_edit", {"object": object, "slug": o.slug}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+        <tr><td>{{ "admin.table.no-data" | trans }}</td></tr>
+        
+        {% endfor %}
+        </tbody>
+    
+    </table>
+</div>

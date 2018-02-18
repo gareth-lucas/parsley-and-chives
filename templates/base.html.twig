@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset("build/app.css") }}" type="text/css" />
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container responsive" style="background-color: #FFF;">
+        {% block navbar %}
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">{{ "homepage.navigation.labels.toggle-navigation" | trans }}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="{{ path("home") }}">{{ "homepage.navigation.labels.site-name" | trans }}</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                    {% if is_granted("ROLE_ADMIN") %}<li class="active"><a href="/admin">{{ "homepage.navigation.labels.admin" | trans }} <span class="sr-only">{{ "homepage.navigation.labels.current" | trans }}</span></a></li>{% endif %}
+                    <li><a href="/blog">{{ "homepage.navigation.labels.blog" | trans }}</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ "homepage.navigation.labels.quick-links.title" | trans }} <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{ path("recipes", {"slug":"breakfast"}) }}">{{ "homepage.navigation.labels.quick-links.breakfast" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"brunch"}) }}">{{ "homepage.navigation.labels.quick-links.brunch" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"lunch"}) }}">{{ "homepage.navigation.labels.quick-links.lunch" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"dinner"}) }}">{{ "homepage.navigation.labels.quick-links.dinner" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"snack"}) }}">{{ "homepage.navigation.labels.quick-links.snack" | trans }}</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ path("recipes", {"slug":"starter"}) }}">{{ "homepage.navigation.labels.quick-links.starter" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"first-course"}) }}">{{ "homepage.navigation.labels.quick-links.first-course" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"second-course"}) }}">{{ "homepage.navigation.labels.quick-links.second-course" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"party-food"}) }}">{{ "homepage.navigation.labels.quick-links.party-food" | trans }}</a></li>
+                        <li><a href="{{ path("recipes", {"slug":"dessert"}) }}">{{ "homepage.navigation.labels.quick-links.dessert" | trans }}</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="navbar-form navbar-left" onsubmit="return false">                    
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search" name="search" id="search" />
+                      </div>             
+                  </form>
+
+                  <ul class="nav navbar-nav navbar-right">
+                    {% if not app.user %}<li><a href="{{ path("fos_user_security_login") }}">Login</a></li>{% endif %}
+                    {% if app.user %}<li><a href="{{ path("fos_user_security_logout") }}">Logout</a></li>{% endif %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ "homepage.navigation.labels.language.title" | trans }} <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale":"en"})) }}"><img src="{{ asset("United-Kingdom-icon.png") | imagine_filter("country_flag_tiny") }}" alt="{{ "homepage.navigation.labels.language.english" | trans }}" /> {{ "homepage.navigation.labels.language.english" | trans }}</a></li>
+                        <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({"_locale":"it"})) }}"> <img src="{{ asset("Italy-icon.png") | imagine_filter("country_flag_tiny") }}" alt="{{ "homepage.navigation.labels.language.italian" | trans }}" /> {{ "homepage.navigation.labels.language.italian" | trans }}</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div id="hits-container"></div>
+        {% endblock navbar %}
+        {% block body %}
+        
+        {% endblock %}
+        </div>
+        {% block javascripts %}
+        <script type="text/javascript" src="{{ asset("build/app.js") }}"></script>
+        <script type="text/javascript" src="{{ asset("build/search.js") }}"></script>
+        {% endblock %}
+    </body>
+</html>

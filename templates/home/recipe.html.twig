@@ -1,0 +1,69 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row" style="margin-top: -15px;">
+            <div class="col-md-4">
+            <h1>{{ recipe.name }} <small><span class="glyphicon glyphicon-print" style="cursor: pointer; color: green" title="{{ "recipe.printable-version" | trans }}"></span><span class="sr-only">[{{ "recipe.printable-version" | trans }}]</span></span></small></h1>
+            <p>
+                <div><strong>{{ "recipe.preparation-time" | trans }}:</strong> {{ recipe.preparationTimeString }}</div>
+                <div><strong>{{ "recipe.cooking-time" | trans }}:</strong> {{ recipe.cookingTimeString }}</div>
+            </p>
+            {% include 'home/ingredient_list.html.twig' with {"recipe": recipe} %}
+        </div>
+        <div class="col-md-8">    
+            <img src="{{ asset(recipe.recipeImages[0].imageName) | imagine_filter("half_image") }}" class="img-responsive img-rounded" alt="{{ recipe.name }}" style="width: 100%" />
+            <p>{{ recipe.description | raw}}</p>
+            <h2>{{ "recipe.method" | trans }}</h2>
+            <div class="row">
+            {% for step in recipe.recipeSteps %}
+                <div class="col-md-4">
+                    <span style="float:left;  width: 30px; text-align: center; margin-right: 5px;font-size: x-large; font-weight: bold; color: #FFF; background-color: #013714;">{{ step.position }}</span>
+                    <div>{{ step.description }}</div>        
+                </div>
+            {% if loop.index % 3 == 0 %}</div><div class="row">{% endif %}    
+            {% endfor %}
+            </div>
+        </div>
+    </div>      
+    {% if settings.showComments %}
+        {% if comments %}
+    <div class="row">    
+        <div class="col-md-8 col-md-offset-4">
+            <h2>Comments</h2>
+
+            {% for comment in comments %}            
+            <div class="well" id="comment-{{ comment.getId() }}">
+            <div>{{ comment.author.username }} - {{ comment.creationDate | date("d-m-Y H:i:s")}}</div>
+            <div>{{ comment.text }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>    
+        {% endif %}
+        
+        {% if settings.allowComments %}
+        {% if is_granted("ROLE_COMMENTER") %}
+    <div class="row">    
+        <div class="col-md-8 col-md-offset-4">
+            <h2>Leave Comment:</h2>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>    
+        {% else %}
+    <div class="row">    
+        <div class="col-md-8 col-md-offset-4">
+            <h4><a href="{{ path("fos_user_security_login") }}">{{ "general.login" | trans}}</a> {{ "general.to-comment" | trans }}</h4>
+        </div>
+    </div> 
+        {% endif %}
+        {% else %}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+            <h4>{{ "general.comments-disabled" | trans }}</h4>
+        </div>
+    </div>    
+        {% endif %}
+    {% endif %}
+{% endblock body %}

@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading">{{ "recipe.ingredient-list.title" | trans }}</div>
+    <div class="panel-body">
+        <div class="list-group">
+            {% for ri in recipe.recipeIngredients %}
+            <div class="list-group-item">
+            {{ ri.readableString }}
+            </div>
+            {% endfor %}
+        </div>                
+    </div>
+</div>

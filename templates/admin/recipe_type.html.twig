@@ -1,0 +1,7 @@
+{% extends "/admin/index.html.twig" %}
+
+{% block admin_body %}
+<h2>Manage Recipe Types</h2>
+{{ table|raw }}
+{% include "/admin/admin_form.html.twig" with {"form": form} %}
+{% endblock admin_body %}

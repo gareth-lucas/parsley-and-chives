@@ -1,0 +1,7 @@
+<div class="text-center">
+<h3>{{ "homepage.featured-recipes" | trans }}</h3>    
+    {% for r in featured_recipes %}
+        {% include "home/featured_recipe.html.twig" with {"r": r} %}
+    {% endfor %}
+
+</div>

@@ -1,0 +1,6 @@
+<div class="col-md-12" style="margin-top: -20px; width: 100%;">
+    <a href="{{ path("view_recipe", {"slug": main_recipe.slug}) }}">
+    <img class="img-responsive text-center" style="width:100%;" src="{{ asset( main_recipe.recipeImages[0].imageName ) | imagine_filter('banner_image') }}" alt="{{ main_recipe.name | trans }}" />
+    <div class="caption caption-bottom caption-right"><h2 style="color: #FFF;">{{ main_recipe.name }}</h2></div>
+    </a>
+</div> 
