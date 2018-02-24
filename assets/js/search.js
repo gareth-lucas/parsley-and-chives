@@ -25,9 +25,7 @@ $(document).ready(function() {
 				displayKey: 'name',
 				templates: {
 					suggestion: function(suggestion) {
-						return '<span><a href="/recipe/' + 
-						suggestion.slug +
-						'">' + suggestion._highlightResult.name.value + '</a>' +
+						return '<span><a href="/' + $("#locale").data("locale") + '/recipe/' + suggestion.slug +'">' + suggestion._highlightResult.name.value + '</a>' +
 						"</span>";						 
 					}
 				}

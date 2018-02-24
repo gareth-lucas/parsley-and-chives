@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>       
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset("build/app.css") }}" type="text/css" />
@@ -77,6 +77,7 @@
         {% block javascripts %}
         <script type="text/javascript" src="{{ asset("build/app.js") }}"></script>
         <script type="text/javascript" src="{{ asset("build/search.js") }}"></script>
+        <div id="locale" data-locale="{{ app.request.locale }}"></div>
         {% endblock %}
     </body>
 </html>

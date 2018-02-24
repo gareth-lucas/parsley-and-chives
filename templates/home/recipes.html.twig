@@ -12,7 +12,7 @@
                 <img src="{{ asset(r.recipeImages[0].imageName) | imagine_filter("tiny_image") }}" alt="{{ r.name }}" />
             </div>
             <div style="margin-left: 150px;">
-                <h4 class="list-group-item-heading"><a href="/recipe/{{ r.slug }}">{{ r.name }}</a></h4>
+                <h4 class="list-group-item-heading"><a href="{{ path("view_recipe", {"slug":r.slug}) }}">{{ r.name }}</a></h4>
                 <p>{{ r.description | raw }}</p>
             </div>
         </li>
