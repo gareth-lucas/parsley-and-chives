@@ -77,6 +77,16 @@
         {% block javascripts %}
         <script type="text/javascript" src="{{ asset("build/app.js") }}"></script>
         <script type="text/javascript" src="{{ asset("build/search.js") }}"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114650460-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-114650460-1');
+        </script>
+                
         <div id="locale" data-locale="{{ app.request.locale }}"></div>
         {% endblock %}
     </body>
