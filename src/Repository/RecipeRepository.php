@@ -12,8 +12,7 @@ class RecipeRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Recipe::class);
-    }
-
+    }    
     
 //     public function findRecipesByType(RecipeType $type)
 //     {

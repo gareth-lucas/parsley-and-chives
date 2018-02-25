@@ -16,6 +16,9 @@
                 <p>{{ r.description | raw }}</p>
             </div>
         </li>
+{% else %}
+    <h3>{{ "general.no-data" | trans }}</h3>
+    {{ render(path("featured_recipes", {"number": 4})) }}
 {% endfor %}
     </ul>
 </div>

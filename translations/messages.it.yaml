@@ -1,0 +1,125 @@
+general:
+  login: Accedi
+  to-comment: per lasciare un commento
+  comments-disabled: Non è possibile lasciare commenti al momento
+  no-data: Nessun elemento trovato
+homepage:
+  featured-recipes: Ricette in primo piano
+  navigation:
+    labels:
+      site-name: Parsley & Chives
+      toggle-navigation: Navigare
+      blog: Blog
+      admin: Admin
+      current: (attuale)
+      quick-links:
+        title: Ricette
+        breakfast: Colazione
+        brunch: Brunch
+        lunch: Pranzo
+        dinner: Cena
+        snack: Spuntino
+        starter: Antipasto
+        first-course: Primo Piatto
+        second-course: Secondo Piatto
+        dessert: Dessert
+        party-food: Piatti da Festa
+      language:
+        title: Selezionare Lingua
+        english: English
+        italian: Italiano
+recipe:
+  preparation-time: Tempo di Preparazione
+  cooking-time: Tempo di Cottura
+  printable-version: Versione Stampabile
+  method: Metodo
+  ingredient-list:
+    title: Ingredienti
+admin:
+  submit: Salva
+  nav:
+    title: Admin Menu
+    explanation: Da questa pagina puoi creare/modificare tutto sul tuo sito; Ricette, Ingredienti, Preparazione, ecc. ecc
+    link:
+      recipes: Ricette
+      preparations: Metodi di Preparazione
+      units: Unità
+      ingredients: Ingredienti      
+      recipe_type: Tipi Ricette
+      blog: Gestire Blog
+  title:
+    preparation: Gestione Tipi di Preparazione
+    units: Gestione Unità
+    ingredients: Gestione Ingredienti
+  table:
+    actions: Azioni
+    no-data: Selezione senza dati
+    uom:
+      name: Nome
+      plural: Plurale
+      abbreviation: Abbreviazione
+      pluralAbbreviation: Plurale Abbr.
+    recipe:
+      name: Nome
+    preparation:
+      name: Metodo di Preparazione
+    ingredient:
+      name: Ingrediente
+    recipetype:
+      name: Nome
+  uom:
+    name: Nome
+    plural: Plurale
+    abbreviation: Abbreviazione
+    plural_abbreviation: Plurale Abbreviazione
+  ingredient:
+    name: Nome
+  recipe:
+    create: Nuova Ricetta
+    update: Modifica Ricetta
+    name: Nome
+    description: Descrizione
+    country: Paese
+    is_vegetarian: Adatta per i vegetariani
+    is_vegan: Adatta per i vegani
+    prep_time: 
+      label: Tempo di Preparazione
+      hours: Ore
+      minutes: Minuti
+    prep_time_string: Tempo di Preparazione (Testuale)
+    cook_time: 
+      label: Tempo di Cottura
+      hours: Ore
+      minutes: Minuti
+    cook_time_string: Tempo di Cottura (Testuale)
+    recipe_ingredients: Ingredienti della Ricetta
+    recipe_steps: Passi
+    recipe_images: Immagini
+  recipestep:
+    step:
+      1: 1
+      2: 2
+      3: 3
+      4: 4
+      5: 5
+      6: 6
+      7: 7
+      8: 8
+      9: 9
+      10: 10
+    position: Posizione
+    description: Descrizione
+    image: Imagine
+  recipeingredient:
+    ingredient: Ingrediente
+    unit: Unità
+    preparation: Preparazione
+    quantity: Quantità
+    readableString: Versione Testuale
+  recipeimage:
+    label: Testo
+    image: Imagine
+  recipetype:
+    name: Nome
+login:
+  title: Accedi

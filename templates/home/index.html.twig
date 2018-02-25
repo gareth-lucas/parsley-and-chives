@@ -5,7 +5,7 @@
                 {% include 'home/main_recipe.html.twig' %}
         </div>
         <div class="row">
-                {% include 'home/featured_recipes.html.twig' %}    
+                {{ render(path("featured_recipes")) }}    
         </div>        
     </div>    
 {% endblock %}

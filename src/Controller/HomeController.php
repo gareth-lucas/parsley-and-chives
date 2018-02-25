@@ -18,12 +18,10 @@ class HomeController extends Controller
     public function index() {
         
         $em = $this->getDoctrine()->getManager();
-        $featured_recipes = $em->getRepository(Recipe::class)->findBy(["id"=>['7','9','6','26']],[],4);
         
         $main_recipe = $em->getRepository(Recipe::class)->find(1);
        
         return $this->render("home/index.html.twig", [
-            "featured_recipes"=>$featured_recipes,
             "main_recipe"=>$main_recipe
         ]);       
     }
@@ -71,6 +69,19 @@ class HomeController extends Controller
     }
     
     /**
+     * @Route("/{_locale}/recipes/featured", name="featured_recipes")
+     */
+    public function getFeaturedRecipes() {
+        $em = $this->getDoctrine()->getManager();
+        $featured_recipes = $em->getRepository(Recipe::class)->findBy(["id"=>['7','9','6','26']],[],4);
+        
+        return $this->render("home/featured_recipes.html.twig", [
+            "featured_recipes"=>$featured_recipes
+        ]); 
+    }
+    
+    
+    /**
      * @Route("/{_locale}/recipes/{slug}", name="recipes")
      * @param string $slug
      */
@@ -81,7 +92,6 @@ class HomeController extends Controller
         if(!$rtype) {
             return $this->createNotFoundException("Recipe Type $slug could not be found");
         }
-        
         
         $recipeList = $rtype->getRecipes();
         

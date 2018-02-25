@@ -1573,6 +1573,7 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
         ];
         
         
+        /*
         foreach ($recipes as $inr) {
             if ($inr['language'] != "EN")
                 continue;
@@ -1615,7 +1616,52 @@ class LoadRecipeData extends AbstractFixture implements OrderedFixtureInterface
             
             $manager->persist($recipe);
         }
-        
+        */
+            
+            foreach ($recipes as $inr) {
+                if ($inr['language'] != "IT")
+                    continue;
+                    
+                    $recipe = $manager->getRepository(Recipe::class)->findOneByTitle($inr['title']);
+                    
+                    $recipe->setTranslatableLocale("it");
+                    $recipe->setName($inr['title']);
+                    $recipe->setDescription($inr['description']);
+                    //$recipe->setPreparationTime(new \DateTime($inr['preparation_time'] . " minutes"));
+                    //$recipe->setCookingTime(new \DateTime($inr['cooking_time'] . " minutes"));
+                    //$recipe->setCreationDate(new \DateTime());
+                    //$recipe->setAuthor("Admin");
+                    
+                    foreach ($inr['steps'] as $index=>$step) {
+                        if ($step == "") {
+                            continue;
+                        }
+                        $rs = $recipe->getRecipeSteps()[$index];
+                        $rs->setTranslatableLocale("it");
+                        $rs->setDescription($step);
+                        //$rs->setPosition(1+$index);
+                        //$recipe->addRecipeStep($rs);
+                    }
+                    
+                    //$ipc = new RecipeIngredient();
+                    //$ipc->setTranslatableLocale("it");
+                    //$ips = [];
+                    
+                    //for ($x = 0; $x < 20; $x ++) {
+                    //    try {
+                    //        $ips[] = $this->getReference("ip-" . $inr['id'] . "-" . $x);
+                    //    } catch (\Exception $e) {
+                            // do nothing
+                    //    }
+                    //}
+                    
+                    //foreach ($ips as $ip) {
+                    //    $recipe->addRecipeIngredient($ip);
+                    //}
+                    
+                    $manager->persist($recipe);
+            }
+            
         $manager->flush();
         
     }

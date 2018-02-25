@@ -2,6 +2,7 @@ general:
   login: Log in
   to-comment: to comment
   comments-disabled: Commenting is currently disabled
+  no-data: No results found
 homepage:
   featured-recipes: Featured Recipes
   navigation:
@@ -12,7 +13,7 @@ homepage:
       admin: Admin
       current: (current)
       quick-links:
-        title: Quick Links
+        title: Recipes
         breakfast: Breakfast
         brunch: Brunch
         lunch: Lunch
