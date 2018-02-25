@@ -3,6 +3,11 @@ general:
   to-comment: per lasciare un commento
   comments-disabled: Non è possibile lasciare commenti al momento
   no-data: Nessun elemento trovato
+  site-name-title: Parsley & Chives
+  type: Ricette
+  page-title:
+    home: Home
+    blog: Blog
 homepage:
   featured-recipes: Ricette in primo piano
   navigation:

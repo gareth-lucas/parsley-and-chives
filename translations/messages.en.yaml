@@ -3,6 +3,11 @@ general:
   to-comment: to comment
   comments-disabled: Commenting is currently disabled
   no-data: No results found
+  site-name-title: Parsley & Chives
+  type: Recipes
+  page-title:
+    home: Home
+    blog: Blog
 homepage:
   featured-recipes: Featured Recipes
   navigation:

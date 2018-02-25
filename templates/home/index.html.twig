@@ -1,5 +1,9 @@
 {% extends "base.html.twig" %}
 
+{% block title %}
+{{ "general.site-name-title" | trans }} - {{ "general.page-title.home" | trans }}
+{% endblock title %}
+
 {% block body %}       
         <div class="row">
                 {% include 'home/main_recipe.html.twig' %}

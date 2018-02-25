@@ -1,5 +1,9 @@
 {% extends "base.html.twig" %}
 
+{% block title %}
+{{ "general.site-name-title" | trans }} - {{ rtype.name }} {{ "general.type" | trans }}
+{% endblock title %}
+
 {% block body %}
 <h1>Recipe List -> {{ rtype.name }}</h1>
 
